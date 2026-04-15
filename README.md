@@ -59,13 +59,7 @@ This project has been rebuilt from a desktop Tkinter prototype into a Vercel-fri
 
    Then open `http://localhost:8000`.
 
-## Vercel deployment
 
-1. Make sure `web-model/model.onnx` and `web-model/labels.json` exist.
-2. Deploy the repo:
-
-   ```bash
-   vercel --prod
    ```
 
 The app is static, so Vercel will serve the HTML frontend and model artifacts directly.
