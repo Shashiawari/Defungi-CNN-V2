@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FungiScan AI</title>
+    <meta
+      name="description"
+      content="Upload a mushroom image and classify it instantly using AI-powered fungi identification."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">AI-Powered Identification</p>
+          <h1>Identify fungi species instantly</h1>
+          <p class="hero-text">
+            Upload a photo of a Fungi and let our deep learning model classify
+            it across five dermatophyte species in real time — right in your browser.
+          </p>
+          <div class="hero-pills">
+            <span>🔬 Deep Learning</span>
+            <span>⚡ Instant Results</span>
+            <span>🌐 Runs in Browser</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <p class="card-label">Supported Species</p>
+          <ul class="species-list" id="speciesList">
+            <li><span class="species-dot"></span>H1</li>
+            <li><span class="species-dot"></span>H2</li>
+            <li><span class="species-dot"></span>H3</li>
+            <li><span class="species-dot"></span>H5</li>
+            <li><span class="species-dot"></span>H6</li>
+          </ul>
+          <div class="hero-card-footer">
+            <span class="hero-card-stat" id="heroAccuracy"></span>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="panel upload-panel">
+          <div class="panel-header">
+            <h2>Upload Image</h2>
+            <p>Choose a mushroom photo to classify.</p>
+          </div>
+
+          <label class="dropzone" for="imageInput" id="dropzone">
+            <input id="imageInput" type="file" accept="image/*" />
+            <span class="dropzone-icon">📷</span>
+            <span class="dropzone-title">Drop image here or click to browse</span>
+            <span class="dropzone-subtitle">JPG, PNG, WEBP supported</span>
+          </label>
+
+          <div class="preview-shell">
+            <img id="previewImage" alt="Selected mushroom preview" />
+            <div class="empty-preview" id="emptyPreview">
+              <p>No image selected yet.</p>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="predictButton" class="primary-btn" disabled>Analyze Image</button>
+            <button id="resetButton" class="ghost-btn" type="button">Reset</button>
+          </div>
+        </section>
+
+        <section class="panel results-panel">
+          <div class="panel-header">
+            <h2>Prediction</h2>
+            <p>Classification results will appear here.</p>
+          </div>
+
+          <div class="status-box" id="statusBox">
+            Loading model...
+          </div>
+
+          <div class="prediction-card">
+            <p class="result-label">Top prediction</p>
+            <h3 id="predictionLabel">Awaiting model</h3>
+            <p id="predictionConfidence">Confidence will appear here.</p>
+          </div>
+
+          <div class="rankings">
+            <div class="rankings-header">
+              <h3>All Classes</h3>
+              <span id="classesCount">0 classes</span>
+            </div>
+            <div id="resultsList" class="results-list"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p>FungiScan AI &middot; Powered by MobileNetV2 &middot; <span id="inputSize">224 × 224</span>px input</p>
+        <p class="footer-credit">Made by <a href="https://shashipreetham.netlify.app/" target="_blank" rel="noopener">Shashi Preetham Awari</a></p>
+      </footer>
+    </div>
+  </body>
+</html>

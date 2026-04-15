@@ -1,0 +1,10 @@
+{
+  "name": "fungiscan-ai",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Vercel-ready fungi classification UI with ONNX browser inference.",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "build": "node -e \"console.log('Static app: no build step required.')\""
+  }
+}

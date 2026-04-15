@@ -1,0 +1,11 @@
+archive/
+archive.zip
+training/
+test images/
+model1/
+.ipynb_checkpoints/
+Fungi.ipynb
+run.bat
+web-model/_keras/
+__pycache__/
+*.pyc

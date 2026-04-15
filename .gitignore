@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+dataset/
+exports/
+training-runs/
+web-model/model.onnx
+web-model/labels.json
+web-model/metrics.json
+node_modules/
+
+.vercel
